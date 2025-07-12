@@ -5,6 +5,7 @@ runs/
 *.pt
 *.tfevents*
 *.egg-info/
+meshes
 
 __pycache__
 
