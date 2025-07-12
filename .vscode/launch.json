@@ -1,0 +1,56 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "planning train",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/runner.py",
+            "cwd": "/home/weihua/robot/Q250GymSim",
+            "console": "integratedTerminal",
+            "args": [
+                "--ctl_mode", "rate", "--headless", "--task", "planning", "--num_envs", "256"
+            ]
+        },
+        {
+            "name": "planning play",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/runner.py",
+            "cwd": "/home/weihua/robot/Q250GymSim",
+            "console": "integratedTerminal",
+            "args": [
+                "--ctl_mode", "rate", "--task", "planning", "--num_envs", "8", "--play", "--checkpoint",
+                "/home/weihua/robot/AirGym/runs/ppo_planning_12-17-51-33/nn/last_ppo_planning_ep_2000_rew_2694.004.pth"
+            ]
+        },
+        {
+            "name": "hovering train",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/runner.py",
+            "cwd": "/home/weihua/robot/Q250GymSim",
+            "console": "integratedTerminal",
+            "args": [
+                "--ctl_mode", "rate", "--task", "hovering",
+                "--headless",
+                // "--num_envs", "512"
+            ]
+        },
+        {
+            "name": "hovering play",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/runner.py",
+            "cwd": "/home/weihua/robot/Q250GymSim",
+            "console": "integratedTerminal",
+            "args": [
+                "--ctl_mode", "rate", "--task", "hovering", "--play", "--num_envs", "8", "--checkpoint",
+                "/home/weihua/robot/AirGym/runs/ppo_hovering_12-17-34-51/nn/last_ppo_hovering_ep_200_rew_6569.013.pth"
+            ]
+        }
+    ]
+}
