@@ -1,6 +1,5 @@
 *.pyc
 runs/
-.vscode/
 *.npz
 *.pt
 *.tfevents*
