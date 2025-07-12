@@ -11,8 +11,8 @@ from rlPx4Controller.pyParallelControl import ParallelRateControl,ParallelVelCon
 
 import pytorch3d.transforms as T
 
-import rospy
-from std_msgs.msg import Float64MultiArray
+# import rospy
+# from std_msgs.msg import Float64MultiArray
 
 def quaternion_conjugate(q: torch.Tensor):
     """Compute the conjugate of a quaternion."""
@@ -359,8 +359,8 @@ class Hovering(BaseTask):
 
     def compute_reward(self):
         self.rew_buf[:], self.reset_buf[:] ,self.item_reward_info= self.compute_quadcopter_reward()
-        action_data = Float64MultiArray()
-        action_data.data = [self.actions[0,0].item(),self.actions[0,1].item(),self.actions[0,2].item(),self.actions[0,3].item()]
+        # action_data = Float64MultiArray()
+        # action_data.data = [self.actions[0,0].item(),self.actions[0,1].item(),self.actions[0,2].item(),self.actions[0,3].item()]
         
         # ros target pub
         # self.pub.publish(action_data)
