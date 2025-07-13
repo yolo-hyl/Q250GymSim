@@ -40,8 +40,15 @@ def compute_yaw_diff(a: torch.Tensor, b: torch.Tensor):
 class Hovering(BaseTask):
 
     def __init__(self, cfg: HoveringCfg, sim_params, physics_engine, sim_device, headless):
-        self.cfg = cfg
+        
         assert cfg.env.ctl_mode is not None, "Please specify one control mode!"
+        assert cfg.env.asset_model is not None, "Please specify one asset model!"
+        assert cfg.asset_config.include_robot[cfg.env.asset_model] is not None, "Please append asset config in your task config!"
+        import copy
+        new_cfg = copy.deepcopy(cfg)
+        new_cfg.asset_config.include_robot = {cfg.env.asset_model: cfg.asset_config.include_robot[cfg.env.asset_model]}
+        self.cfg = new_cfg
+
         print("ctl mode =========== ", cfg.env.ctl_mode)
         self.ctl_mode = cfg.env.ctl_mode
         self.cfg.env.num_actions = 5 if cfg.env.ctl_mode == "atti" else 4

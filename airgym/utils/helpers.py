@@ -74,6 +74,10 @@ def update_cfg_from_args(env_cfg, args):
             env_cfg.seed = args.seed
         except AttributeError:
             print('seed is not exist')
+        try:
+            env_cfg.env.asset_model = args.asset_model
+        except AttributeError:
+            print('asset_model is not exist')
         
         # random seed
                 
@@ -100,8 +104,9 @@ def get_args():
         {"name": "--headless", "action": "store_true", "default": False, "help": "Force display off at all times"},
         {"name": "--horovod", "action": "store_true", "default": False, "help": "Use horovod for multi-gpu training"},
         {"name": "--rl_device", "type": str, "default": "cuda:0", "help": 'Device used by the RL algorithm, (cpu, gpu, cuda:0, cuda:1 etc..)'},
+        {"name": "--asset_model", "required": False, "type": str, "help": 'choose in Q250 and X152b'},
         {"name": "--ctl_mode", "required": True, "type": str, "help": 'Specify the control mode and the options are: pos, vel, atti, rate, prop'},
-        ]
+    ]
         
     # parse arguments
     args = gymutil.parse_arguments(
