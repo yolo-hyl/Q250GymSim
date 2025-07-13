@@ -17,6 +17,12 @@ from airgym.utils.helpers import get_args
 
 
 def update_config(config, args):
+    # 默认Q250飞机
+    if args['asset_model'] is not None:
+        config['params']['config']['env_config']['asset_model'] = args['asset_model']
+    else:
+        config['params']['config']['env_config']['asset_model'] = 'Q250'
+
     if args['task'] is not None:
         config['params']['config']['env_name'] = args['task']
     else:
