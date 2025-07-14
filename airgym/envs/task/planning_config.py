@@ -47,7 +47,7 @@ class PlanningCfg(BaseConfig):
 
     class asset_config:
         include_robot = {
-            "X152b": {
+            "Q250": {
                 "num_assets": 1,
                 "enable_onboard_cameras": True,
                 'cam_channel': 1,
@@ -57,6 +57,20 @@ class PlanningCfg(BaseConfig):
                 "far_plane": 5.0,
                 "horizontal_fov": 87.0,
                 "use_collision_geometry": True,
+                "local_transform.p": (0.15, 0.00, 0.1),
+                "local_transform.r": (0.0, 0.0, 0.0, 1.0),
+                "collision_mask": 1,
+            },
+            "X152b": {
+                "num_assets": 1,
+                "enable_onboard_cameras": True,
+                'cam_channel': 1,
+                "enable_tensors": True,
+                "width": 212,
+                "height": 120,
+                "far_plane": 5.0,
+                "horizontal_fov": 87.0,
+                "use_collision_geometry": False,
                 "local_transform.p": (0.15, 0.00, 0.1),
                 "local_transform.r": (0.0, 0.0, 0.0, 1.0),
                 "collision_mask": 1,

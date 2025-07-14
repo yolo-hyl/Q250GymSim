@@ -64,6 +64,31 @@ registry.register_asset(
 )
 
 registry.register_asset(
+    "iris",
+    override_params={
+        "path": f"{AIRGYM_ROOT_DIR}/airgym/assets/robots/iris/model.urdf",
+        "name": "iris",
+        "base_link_name": "base_link",
+        "foot_name": None,
+        "penalize_contacts_on": [],
+        "terminate_after_contacts_on": [],
+        "disable_gravity": False,
+        "collapse_fixed_joints": True,
+        "fix_base_link": False,
+        "collision_mask": 1,
+        "density": -1,
+        "angular_damping": 0.0,
+        "linear_damping": 0.0,
+        "replace_cylinder_with_capsule": False,
+        "flip_visual_attachments": False,
+        "max_angular_velocity": 100.,
+        "max_linear_velocity": 100.,
+        "armature": 0.001,
+    },
+    asset_type="single"
+)
+
+registry.register_asset(
     "thin",
     override_params={
         "path": f"{AIRGYM_ROOT_DIR}/airgym/assets/env_assets/thin",

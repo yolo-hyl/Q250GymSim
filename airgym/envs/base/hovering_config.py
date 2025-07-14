@@ -74,6 +74,20 @@ class HoveringCfg(BaseConfig):
                 "local_transform.p": (0.15, 0.00, 0.1),
                 "local_transform.r": (0.0, 0.0, 0.0, 1.0),
                 "collision_mask": 1,
+            },
+            "iris": {
+                "num_assets": 1,
+                "enable_onboard_cameras": False,
+                'cam_channel': 1,
+                "enable_tensors": False,
+                "width": 212,
+                "height": 120,
+                "far_plane": 5.0,
+                "horizontal_fov": 87.0,
+                "use_collision_geometry": True,
+                "local_transform.p": (0.15, 0.00, 0.1),
+                "local_transform.r": (0.0, 0.0, 0.0, 1.0),
+                "collision_mask": 1,
             }
         }
 
